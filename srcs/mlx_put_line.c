@@ -25,7 +25,6 @@ void mlx_put_line(t_ptr *ptr)
 	while (1)
  	{
         mlx_pixel_put(ptr->mlx, ptr->win, ptr->x0, ptr->y0, ptr->colors);
-    	// aff_point(ptr->x0, ptr->y0, ptr, ptr->colors);
     	if (ptr->x0 == ptr->x1 && ptr->y0 == ptr->y1)
     		break;
     	l.e2 = l.err;

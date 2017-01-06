@@ -23,7 +23,26 @@ CC = clang $(FLAGS) $(INC)
 
 ## List of Functions
 
-SRC_FT = test
+SRC_FT = fdf_main \
+		 fdf_put_in_map \
+		 fdf_make_map \
+		 fdf_take_dimension \
+		 fdf_map_extract \
+		 fdf_aff_map \
+		 mlx_aff_point \
+		 fdf_key_code1 \
+		 fdf_key_code2_1 \
+		 fdf_key_code2_2 \
+		 fdf_key_code2_3 \
+		 fdf_key_code3 \
+		 fdf_key_code4 \
+		 fdf_key_code5 \
+		 fdf_key_code6 \
+		 mlx_put_line \
+		 fdf_map_in_windows2 \
+		 fdf_aff_rendu \
+		 fdf_rotation \
+		 aff_map
 
 ## List of Utilities
 

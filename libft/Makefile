@@ -6,7 +6,7 @@
 #    By: aancel <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 13:34:05 by aancel            #+#    #+#              #
-#    Updated: 2016/12/09 06:48:28 by aancel           ###   ########.fr        #
+#    Updated: 2016/12/26 12:58:03 by aancel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,14 +150,14 @@ $(NAME): $(SRC)
 	@echo "\\0033[1;34mSource created\\0033[0m"
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\\0033[32mLibft created\\0033[0m"
+	@echo "\\0033[0;32mLibft created\\0033[0m"
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\\0033[33mSource deleted\\0033[0m"
+	@echo "\\0033[0;33mSource deleted\\0033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\\0033[31mLibft deleted\\0033[0m"
+	@echo "\\0033[0;31mLibft deleted\\0033[0m"
 
 re: fclean all

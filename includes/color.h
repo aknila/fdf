@@ -28,11 +28,5 @@
 # define F_GREY "\033[0;37m"
 # define C_GREY "\033[1;37m"
 # define FIN "\033[0m"
-# define BLACK "\033[1;38;5;16m"
 # define BLACK_IN_WHITE "\033[1;48;5;255;38;5;16m"
-# define FRONT_BLACK "\033[1;48;5;16m"
-# define FRONT_WHITE "\033[1;48;5;255m"
-# define FRONT_YELLOW "\033[1;48;5;214m"
-# define FRONT_GREY "\033[1;48;5;250m"
-
 #endif
