@@ -14,10 +14,17 @@
 
 int		fdf_key_code3(int keycode, t_ptr *ptr)
 {
-	mlx_clear_window(ptr->mlx, ptr->win);
-	if (keycode == 82)
+	// mlx_clear_window(ptr->mlx, ptr->win);
+	mlx_clr_img(ptr);
+	if (keycode == 82 && ptr->form == 0)
 		ptr->h--;
-	if (keycode == 65)
+	if (keycode == 65 && ptr->form == 0)
 		ptr->h++;
+	if (keycode == 75)
+	{
+		ptr->d++;
+		if (ptr->d > 1)
+			ptr->d = 0;
+	}
 	return (0);
 }

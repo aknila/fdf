@@ -14,12 +14,13 @@
 
 int		fdf_key_code2_2(int keycode, t_ptr *ptr)
 {
-	mlx_clear_window(ptr->mlx, ptr->win);
-	if (keycode == 84)
-		ptr->t2 += PI / 36;
-	if (keycode == 87)
+	// mlx_clear_window(ptr->mlx, ptr->win);
+	mlx_clr_img(ptr);
+	if (keycode == 84 && ptr->form == 0)
+		ptr->t2 += PI / ptr->rot;
+	if (keycode == 87 && ptr->form == 0)
 		ptr->t2 = 0;
-	if (keycode == 91)
-		ptr->t2 -= PI / 36;
+	if (keycode == 91 && ptr->form == 0)
+		ptr->t2 -= PI / ptr->rot;
 	return (0);
 }

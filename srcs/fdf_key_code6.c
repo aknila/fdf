@@ -12,15 +12,38 @@
 
 #include "../includes/fdf.h"
 
+int		fdf_close(t_ptr *ptr)
+{
+	int i;
+
+	i = 0;
+	mlx_destroy_window(ptr->mlx, ptr->win);
+	mlx_destroy_window(ptr->mlx, ptr->wth->win);
+	mlx_destroy_image(ptr->mlx, ptr->img->ptr_img);
+	// while (i < ptr->map->l)
+	// {
+	// 	free(ptr->map->map[i]);
+	// 	i++;
+	// }
+	free(ptr->map->map);
+	free(ptr->map);
+	exit(0);
+	return (0);
+}
+
+int		fdf_close2(t_wth *wth)
+{
+	mlx_destroy_window(wth->mlx, wth->win);
+	return (0);
+}
+
 int		fdf_key_code6(int keycode, t_ptr *ptr)
 {
-	mlx_clear_window(ptr->mlx, ptr->win);
+	// mlx_clear_window(ptr->mlx, ptr->win);
+	mlx_clr_img(ptr);
 	if (keycode == 53)
-	{
-		mlx_destroy_window(ptr->mlx, ptr->win);
-		exit(0);
-	}
-	if (keycode == 36)
+		fdf_close(ptr);
+	if (keycode == 36) 
 	{
 		ptr->form++;
 		if (ptr->form > 1)

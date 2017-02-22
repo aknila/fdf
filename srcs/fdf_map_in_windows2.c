@@ -1,30 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_map_in_windows2.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aancel <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/06 16:59:05 by aancel            #+#    #+#             */
+/*   Updated: 2017/01/07 17:22:37 by aancel           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
+
+int		fdf_colo(int nbr, t_ptr *ptr)
+{
+	if (ptr->c == 0)
+		return (fdf_col(nbr));
+	if (ptr->c == 1)
+		return (fdf_col(1) - 20 * nbr);
+	if (ptr->c == 2)
+		return (fdf_col(2) - 20 * nbr);
+	if (ptr->c == 3)
+		return (fdf_col(3) - 20 * nbr);
+	if (ptr->c == 4)
+		return (fdf_col(4) - 20 * nbr);
+	if (ptr->c == 5)
+		return (fdf_col(5) - 20 * nbr);
+	if (ptr->c == 6)
+		return (fdf_col(6) - 20 * nbr);
+	if (ptr->c == 7)
+		return (fdf_col(7) - 20 * nbr);
+	if (ptr->c == 8)
+		return (fdf_col(8) - 20 * nbr);
+	if (ptr->c == 9)
+		return (fdf_col(9) - 20 * nbr);
+	if (ptr->c == 10)
+		return (fdf_col(10) - 20 * nbr);
+	return (0);
+}
+
+int		fdf_col(int m)
+{
+	while (m < 0)
+		m += 11;
+	if (m % 11 == 0)
+		return (0x00ffffff); //BLANC
+	if (m % 11 == 1)
+		return (0x00bcbcbc); //GRIS
+	if (m % 11 == 2)
+		return (0x00996600); //MARRON
+	if (m % 11 == 3)
+		return (0x00ff9933); //ORANGE
+	if (m % 11 == 4)
+		return (0x00ffaf00); //JAUNE
+	if (m % 11 == 5)
+		return (0x0000cc00); //VERT
+	if (m % 11 == 6)
+		return (0x0033ffff); //BLEU CLAIR
+	if (m % 11 == 7)
+		return (0x000099ff); //BLEU
+	if (m % 11 == 8)
+		return (0x000033ff); //BLEU FONCE 
+	if (m % 11 == 9)
+		return (0x009900cc); //VIOLET
+	if (m % 11 == 10)
+		return (0x00cc0000); //ROUGE
+	return (0);
+}
 
 void	fdf_map_in_windows2(t_ptr *ptr)
 {
-	int i;
-	int j;
-	int a;
-	t_map *m;
+	int		i;
+	int		j;
+	int		sx;
+	int		sy;
+	t_map	*m;
 
 	m = ptr->map;
-	a = (2 * ptr->sz + 1);
 	i = 0;
 	while (i < m->l)
 	{
 		j = 0;
 		while (j < m->c)
 		{
-			if (m->map[i][j] % 4 == 0)
-				mlx_aff_point(j * a + ptr->sz + ptr->y, i * a + ptr->sz + ptr->x, ptr, 0x00000000);  // NOIR
-			if (m->map[i][j] % 4 == 1)
-				mlx_aff_point(j * a + ptr->sz + ptr->y, i * a + ptr->sz + ptr->x, ptr, 0x00ffaf00);  // JAUNE
-			if (m->map[i][j] % 4 == 2)
-				mlx_aff_point(j * a + ptr->sz + ptr->y, i * a + ptr->sz + ptr->x, ptr, 0x00FFFFFF);  // BLANC
-			if (m->map[i][j] % 4 == 3)
-				mlx_aff_point(j * a + ptr->sz + ptr->y, i * a + ptr->sz + ptr->x, ptr, 0x00bcbcbc);  // GRIS
+			sy = j * (2 * ptr->sz + 1) + ptr->sz + ptr->y;
+			sx = i * (2 * ptr->sz + 1) + ptr->sz + ptr->x;
+			mlx_aff_point(sy, sx, ptr, fdf_colo(m->map[i][j], ptr));
 			j++;
 		}
 		i++;
 	}
+	mlx_put_info(ptr);
+	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img->ptr_img, 0, 0);
 }

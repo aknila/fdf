@@ -14,17 +14,23 @@
 
 int		fdf_key_code1(int kc, t_ptr *ptr)
 {
+	if (kc == 121)
+		ptr->rot += (ptr->rot + 4 <= 70 ? 4 : 0);
+	if (kc == 116)
+		ptr->rot -= (ptr->rot - 4 >= 2 ? 4 : 0);
+	if (kc == 71)
+		ptr->rot = 36;
 	if (kc == 83 || kc == 86 || kc == 89)
 		fdf_key_code2_1(kc, ptr);
 	if (kc == 84 || kc == 87 || kc == 91)
 		fdf_key_code2_2(kc, ptr);
 	if (kc == 85 || kc == 88 || kc == 92)
 		fdf_key_code2_3(kc, ptr);
-	if (kc == 82 || kc == 65)
+	if (kc == 82 || kc == 65 || kc == 75)
 		fdf_key_code3(kc, ptr);
-	if (kc == 123 || kc == 124 || kc == 125 || kc == 126)
+	if (kc == 123 || kc == 124 || kc == 125 || kc == 126 || kc == 35)
 		fdf_key_code4(kc, ptr);
-	if (kc == 78 || kc == 69)
+	if (kc == 78 || kc == 69 || kc == 8 || kc == 11 || kc == 9 || kc == 12)
 		fdf_key_code5(kc, ptr);
 	if (kc == 53 || kc == 71 || kc == 36)
 		fdf_key_code6(kc, ptr);

@@ -14,22 +14,20 @@
 
 int		fdf_key_code4(int keycode, t_ptr *ptr)
 {
-	mlx_clear_window(ptr->mlx, ptr->win);
+	// mlx_clear_window(ptr->mlx, ptr->win);
+	mlx_clr_img(ptr);
 	if (keycode == 126)
-		ptr->x = ptr->x - (2 * ptr->sz + 1);
+		ptr->x = ptr->x + (2 * ptr->sz + (ptr->map->c / 5));
 	if (keycode == 125)
-		ptr->x = ptr->x + (2 * ptr->sz + 1);
+		ptr->x = ptr->x - (2 * ptr->sz + (ptr->map->c / 5));
 	if (keycode == 124)
-		ptr->y = ptr->y + (2 * ptr->sz + 1);
+		ptr->y = ptr->y - (2 * ptr->sz + (ptr->map->c / 5));
 	if (keycode == 123)
-		ptr->y = ptr->y - (2 * ptr->sz + 1);
-	// if (ptr->x < 0 + ptr->sz)
-	// 	ptr->x = 0;
-	// if (ptr->x > ptr->size_x - ptr->sz)
-	// 	ptr->x = ptr->size_x;
-	// if (ptr->y < 0 + ptr->sz)
-	// 	ptr->y = 0;
-	// if (ptr->y > ptr->size_y - ptr->sz)
-	// 	ptr->y = ptr->size_y;
+		ptr->y = ptr->y + (2 * ptr->sz + (ptr->map->c / 5));
+	if (keycode == 35)
+	{
+		ptr->x = (SIZE_Y / 2) - (ptr->map->l * (2 * ptr->sz + 1) / 2);
+		ptr->y = (SIZE_X / 2) - (ptr->map->c * (2 * ptr->sz + 1) / 2);
+	}
 	return (0);
 }

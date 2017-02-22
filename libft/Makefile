@@ -75,7 +75,9 @@ SRC = ft_atoi.c \
 	  ft_toupper.c \
 	  ft_puttab.c \
 	  ft_puttab_fd.c \
-	  ft_create_tab.c
+	  ft_create_tab.c \
+	  ft_gnl.c \
+	  ft_strlenre.c
 
 OBJ = ft_atoi.o \
 	  ft_bzero.o \
@@ -140,7 +142,9 @@ OBJ = ft_atoi.o \
 	  ft_toupper.o \
 	  ft_puttab.o \
 	  ft_puttab_fd.o \
-	  ft_create_tab.o
+	  ft_create_tab.o \
+	  ft_gnl.o \
+	  ft_strlenre.o
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes/libft.h
 all: $(NAME)

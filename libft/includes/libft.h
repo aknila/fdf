@@ -13,11 +13,23 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 
 # define ABS(x)		((x) < 0 ? -(x) : (x))
+# define BUFF_SIZE 1000
+# define MAX_FD 10000
+# define MAX_INT 2147483647
+
+typedef struct		s_store
+{
+	char	*stock[MAX_FD + 1];
+	char	*buf;
+	int		ret;
+	char	*tmp;
+}					t_store;
 
 typedef struct		s_list
 {
@@ -76,7 +88,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 void				ft_strdel(char **as);
-char				*ft_strtrim(char const *s);
+char				*ft_strtrim(char *s);
 int					ft_count_space(char const *str);
 char				*ft_strnew(size_t size);
 void				ft_memdel(void **ap);
@@ -90,5 +102,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_count_word(char const *str, char c);
 char				*ft_strrev(char *str);
+int					get_next_line(int const fd, char **line);
+size_t				ft_strlenre(const char *str, const char c);
 
 #endif

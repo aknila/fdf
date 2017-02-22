@@ -6,13 +6,13 @@
 /*   By: aancel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 02:39:19 by aancel            #+#    #+#             */
-/*   Updated: 2017/01/05 02:39:20 by aancel           ###   ########.fr       */
+/*   Updated: 2017/01/07 17:25:04 by aancel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int 	mlx_aff_point(int x, int y, t_ptr *ptr, int color)
+int		mlx_aff_point(int x, int y, t_ptr *ptr, int color)
 {
 	int a;
 	int b;
@@ -25,7 +25,8 @@ int 	mlx_aff_point(int x, int y, t_ptr *ptr, int color)
 		b = y - size;
 		while (b <= y + size)
 		{
-			mlx_pixel_put(ptr->mlx, ptr->win, a, b, color);
+			// mlx_pixel_put(ptr->mlx, ptr->win, a, b, color);
+			mlx_pix_img(ptr, a, b, color);
 			b++;
 		}
 		a++;
