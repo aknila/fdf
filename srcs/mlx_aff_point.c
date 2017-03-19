@@ -25,7 +25,6 @@ int		mlx_aff_point(int x, int y, t_ptr *ptr, int color)
 		b = y - size;
 		while (b <= y + size)
 		{
-			// mlx_pixel_put(ptr->mlx, ptr->win, a, b, color);
 			mlx_pix_img(ptr, a, b, color);
 			b++;
 		}

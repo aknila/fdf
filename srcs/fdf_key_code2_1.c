@@ -14,7 +14,6 @@
 
 int		fdf_key_code2_1(int keycode, t_ptr *ptr)
 {
-	// mlx_clear_window(ptr->mlx, ptr->win);
 	mlx_clr_img(ptr);
 	if (keycode == 83 && ptr->form == 0)
 		ptr->t1 += PI / ptr->rot;

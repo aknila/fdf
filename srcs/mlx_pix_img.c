@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_pix_img.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aancel <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/01/05 02:38:57 by aancel            #+#    #+#             */
+/*   Updated: 2017/01/07 17:22:07 by aancel           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 void	mlx_pix_img(t_ptr *ptr, int x, int y, int color)
@@ -11,9 +23,12 @@ void	mlx_pix_img(t_ptr *ptr, int x, int y, int color)
 	b = (color & 0xFF);
 	if (y >= 0 && x >= 0 && y < SIZE_Y && x < SIZE_X)
 	{
-		ptr->img->bts[(y * ptr->img->size_line) + ((ptr->img->bpp / 8) * x) + 2] = r;
-		ptr->img->bts[(y * ptr->img->size_line) + ((ptr->img->bpp / 8) * x) + 1] = g;
-		ptr->img->bts[(y * ptr->img->size_line) + ((ptr->img->bpp / 8) * x)] = b;
+		ptr->img->bts[(y * ptr->img->size_line)
+			+ ((ptr->img->bpp / 8) * x) + 2] = r;
+		ptr->img->bts[(y * ptr->img->size_line)
+			+ ((ptr->img->bpp / 8) * x) + 1] = g;
+		ptr->img->bts[(y * ptr->img->size_line)
+			+ ((ptr->img->bpp / 8) * x)] = b;
 	}
 }
 

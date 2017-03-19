@@ -57,13 +57,6 @@ typedef struct	s_img
 	int			end;
 }				t_img;
 
-typedef struct	s_wth
-{
-	void		*win;
-	void		*mlx;
-}				t_wth;
-
-
 typedef struct	s_ptr
 {
 	int			d;
@@ -90,7 +83,6 @@ typedef struct	s_ptr
 	void		*win;
 	t_map		*map;
 	t_img		*img;
-	t_wth		*wth;
 }				t_ptr;
 
 int				fdf_check_ext(char *str);
@@ -127,8 +119,8 @@ void			mlx_clr_img(t_ptr *ptr);
 void			fdf_aff_diag_1(int i, int j, t_map *m, t_ptr *ptr);
 void			fdf_aff_diag_2(int i, int j, t_map *m, t_ptr *ptr);
 int				fdf_colo(int nbr, t_ptr *ptr);
-int				fdf_close2(t_wth *wth);
-void			mlx_put_info(t_ptr *ptr);
-char			*fdf_putdec(int i, char *c);
+void			fdf_initialis(t_ptr *ptr);
+int				fdf_check_file2(char **str1, int *l, int *a);
+void			fdf_aff_conv_point(t_ptr *ptr, t_map *m, int i, int j);
 
 #endif

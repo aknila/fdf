@@ -14,7 +14,6 @@
 
 int		fdf_key_code3(int keycode, t_ptr *ptr)
 {
-	// mlx_clear_window(ptr->mlx, ptr->win);
 	mlx_clr_img(ptr);
 	if (keycode == 82 && ptr->form == 0)
 		ptr->h--;

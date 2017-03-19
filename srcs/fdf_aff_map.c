@@ -25,7 +25,6 @@ int		mouse_code(int y, int x, t_ptr *ptr)
 	}
 	else
 	{
-		// mlx_clear_window(ptr->mlx, ptr->win);
 		mlx_clr_img(ptr);
 		if ((x - x0) > 0 && (x - x0) < 100)
 			ptr->t1 += PI / 200;
@@ -42,38 +41,40 @@ int		mouse_code(int y, int x, t_ptr *ptr)
 	return (0);
 }
 
+void	fdf_initialis(t_ptr *ptr)
+{
+	ptr->size_x = SIZE_X;
+	ptr->size_y = SIZE_Y;
+	ptr->sz = 1;
+	ptr->d = 0;
+	ptr->x = 0;
+	ptr->y = 0;
+	ptr->t1 = 0;
+	ptr->t2 = 0;
+	ptr->t3 = 0;
+	ptr->h = 0;
+	ptr->form = 0;
+	ptr->rot = 36;
+	ptr->v = 0;
+	ptr->v1 = 0;
+	ptr->c = 0;
+}
+
 void	fdf_aff_map(t_map *m, char *name)
 {
 	t_ptr	ptr;
-	t_wth	wth;
 	t_img	img;
 	char	*str;
 
 	str = ft_strjoin("Fdf - ", name);
+	fdf_initialis(&ptr);
 	ptr.map = m;
-	ptr.size_x = SIZE_X;
-	ptr.size_y = SIZE_Y;
-	ptr.sz = 1;
-	ptr.d = 0;
-	ptr.x = 0;
-	ptr.y = 0;
-	ptr.t1 = 0;
-	ptr.t2 = 0;
-	ptr.t3 = 0;
-	ptr.h = 0;
-	ptr.form = 0;
-	ptr.rot = 36;
-	ptr.v = 0;
-	ptr.v1 = 0;
-	ptr.c = 0;
 	ptr.mlx = mlx_init();
-	wth.mlx = ptr.mlx;
 	ptr.win = mlx_new_window(ptr.mlx, ptr.size_x, ptr.size_y, str);
-	wth.win = mlx_new_window(wth.mlx, SH2_X, SH2_Y, "A Window To Help You");
 	img.ptr_img = mlx_new_image(ptr.mlx, SIZE_X, SIZE_Y);
-	img.bts = mlx_get_data_addr(img.ptr_img, &(img.bpp), &(img.size_line), &(img.end));
+	img.bts = mlx_get_data_addr(img.ptr_img, &(img.bpp),
+		&(img.size_line), &(img.end));
 	ptr.img = &img;
-	ptr.wth = &wth;
 	fdf_map_in_windows(&ptr);
 	mlx_hook(ptr.win, 2, 3, fdf_key_code1, &ptr);
 	mlx_hook(ptr.win, 17, (1L << 17), fdf_close, &ptr);

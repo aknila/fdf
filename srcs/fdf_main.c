@@ -18,6 +18,8 @@ int		ft_error(int error)
 		ft_putstr(C_ROUGE "\terror : invalid file\n" FIN);
 	if (error == 1)
 		ft_putstr(C_ROUGE "\terror : bad extension\n" FIN);
+	if (error == 2)
+		ft_putstr(C_ROUGE "\tusage : ./fdf {filename}\n" FIN);
 	return (-1);
 }
 
@@ -46,28 +48,17 @@ int		main(int argc, char **argv)
 {
 	t_map	*m;
 	int		fd;
-	// char	*str;
-	char	*buf;
+	char	buf[1];
 
-	// str = NULL;
-	if(!(buf = (char *)malloc(sizeof(char) * 1)))
-		return (-1);
 	if (argc != 2)
-	{
-		ft_putstr(C_ROUGE "\tusage : ./fdf {filename}\n");
-		return (-1);
-	}
-	else if (fdf_check_ext(argv[1]) == -1)
+		return (ft_error(2));
+	if (fdf_check_ext(argv[1]) == -1)
 		return (ft_error(1));
 	else
 	{
 		fd = open(argv[1], O_RDONLY);
 		if (read(fd, buf, 1) == -1)
-		{
-			free(buf);
 			return (ft_error(0));
-		}
-		free(buf);
 		close(fd);
 		fd = open(argv[1], O_RDONLY);
 		if (!(m = fdf_map_extract(fd, argv[1])))

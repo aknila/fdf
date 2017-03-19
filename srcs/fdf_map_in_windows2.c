@@ -44,27 +44,27 @@ int		fdf_col(int m)
 	while (m < 0)
 		m += 11;
 	if (m % 11 == 0)
-		return (0x00ffffff); //BLANC
+		return (0x00ffffff);
 	if (m % 11 == 1)
-		return (0x00bcbcbc); //GRIS
+		return (0x00bcbcbc);
 	if (m % 11 == 2)
-		return (0x00996600); //MARRON
+		return (0x00996600);
 	if (m % 11 == 3)
-		return (0x00ff9933); //ORANGE
+		return (0x00ff9933);
 	if (m % 11 == 4)
-		return (0x00ffaf00); //JAUNE
+		return (0x00ffaf00);
 	if (m % 11 == 5)
-		return (0x0000cc00); //VERT
+		return (0x0000cc00);
 	if (m % 11 == 6)
-		return (0x0033ffff); //BLEU CLAIR
+		return (0x0033ffff);
 	if (m % 11 == 7)
-		return (0x000099ff); //BLEU
+		return (0x000099ff);
 	if (m % 11 == 8)
-		return (0x000033ff); //BLEU FONCE 
+		return (0x000033ff);
 	if (m % 11 == 9)
-		return (0x009900cc); //VIOLET
+		return (0x009900cc);
 	if (m % 11 == 10)
-		return (0x00cc0000); //ROUGE
+		return (0x00cc0000);
 	return (0);
 }
 
@@ -90,6 +90,5 @@ void	fdf_map_in_windows2(t_ptr *ptr)
 		}
 		i++;
 	}
-	mlx_put_info(ptr);
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img->ptr_img, 0, 0);
 }

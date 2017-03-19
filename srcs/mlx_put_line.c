@@ -23,7 +23,6 @@ void	mlx_put_line(t_ptr *ptr)
 	l.err = (l.dx > l.dy ? l.dx : -l.dy) / 2;
 	while (1)
 	{
-		// mlx_pixel_put(ptr->mlx, ptr->win, ptr->x0, ptr->y0, ptr->colors);
 		mlx_pix_img(ptr, ptr->x0, ptr->y0, ptr->colors);
 		if (ptr->x0 == ptr->x1 && ptr->y0 == ptr->y1)
 			break ;

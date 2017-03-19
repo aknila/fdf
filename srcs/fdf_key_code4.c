@@ -14,16 +14,15 @@
 
 int		fdf_key_code4(int keycode, t_ptr *ptr)
 {
-	// mlx_clear_window(ptr->mlx, ptr->win);
 	mlx_clr_img(ptr);
 	if (keycode == 126)
-		ptr->x = ptr->x + (2 * ptr->sz + (ptr->map->c / 5));
-	if (keycode == 125)
 		ptr->x = ptr->x - (2 * ptr->sz + (ptr->map->c / 5));
+	if (keycode == 125)
+		ptr->x = ptr->x + (2 * ptr->sz + (ptr->map->c / 5));
 	if (keycode == 124)
-		ptr->y = ptr->y - (2 * ptr->sz + (ptr->map->c / 5));
-	if (keycode == 123)
 		ptr->y = ptr->y + (2 * ptr->sz + (ptr->map->c / 5));
+	if (keycode == 123)
+		ptr->y = ptr->y - (2 * ptr->sz + (ptr->map->c / 5));
 	if (keycode == 35)
 	{
 		ptr->x = (SIZE_Y / 2) - (ptr->map->l * (2 * ptr->sz + 1) / 2);
